@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weel"
+    tools:context=".congratulations.CongratulationActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tv_submit">
+
+        <RelativeLayout
+            android:id="@+id/relative_congratulations"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorGreenButton">
+
+            <ImageView
+                android:id="@+id/img_back_congratulations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_dp15"
+                android:src="@drawable/back_arrow_w" />
+
+            <TextView
+                android:id="@+id/tv_congos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/congratulations"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_sp22" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_congratulations">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_congo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_dp80"
+                        android:text="@string/congo"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp28" />
+
+                    <ImageView
+                        android:id="@+id/img_done"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_congo"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_dp50"
+                        android:src="@drawable/ticks" />
+
+                    <TextView
+                        android:id="@+id/tv_goodjob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_done"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_dp50"
+                        android:layout_marginBottom="@dimen/margin_dp45"
+                        android:text="You Did a Good Job."
+                        android:textColor="@color/colorRedText"
+                        android:textSize="@dimen/textsize_sp21" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@color/colorGreenButton"
+        android:gravity="center"
+        android:padding="@dimen/padding_dp15"
+        android:text="@string/done"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/textsize_sp19" />
+</RelativeLayout>

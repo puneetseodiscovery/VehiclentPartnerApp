@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weel"
+    tools:context=".feedback.FeedbackActivity">
+
+    <RelativeLayout
+        android:layout_above="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorGreenButton">
+
+            <ImageView
+                android:id="@+id/img_back_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_dp15"
+                android:src="@drawable/back_arrow_w" />
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/feedback"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_sp22" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_rating"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rating_to_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/rating_to_customer"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textsize_sp25" />
+
+            <RatingBar
+                android:id="@+id/rating_feedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rating_to_customer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_dp25"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:numStars="5"
+                android:stepSize="1.0"
+                android:theme="@style/RatingBar"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@color/colorGreenButton"
+        android:gravity="center"
+        android:padding="@dimen/padding_dp15"
+        android:text="@string/submit"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/textsize_sp19" />
+
+</RelativeLayout>

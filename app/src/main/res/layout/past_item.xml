@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null">
+
+        <!--Add cardview contents-->
+        <LinearLayout
+            android:id="@+id/ll_earning_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="horizontal"
+            android:padding="@dimen/dim15">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_user_img"
+                    android:layout_width="@dimen/margin_dp110"
+                    android:layout_height="@dimen/margin_dp110"
+                    android:src="@drawable/profile_150" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim10"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_status_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="Status :"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="Closed"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim15"
+                android:layout_marginRight="@dimen/dim10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim10"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="Adem Jones"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="21sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim10"
+                    android:layout_marginTop="@dimen/dim5"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_calendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:src="@mipmap/claci_home" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/dim10"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="19 March 2019"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dim10"
+                    android:layout_marginTop="@dimen/dim5"
+                    android:layout_marginRight="@dimen/dim10"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:src="@mipmap/tool_box" />
+
+                    <TextView
+                        android:id="@+id/tv_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dim10"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="Car care"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dim5"
+                    android:layout_marginRight="@dimen/dim10"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_earning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:singleLine="true"
+                        android:src="@mipmap/ic_launcher"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_earning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dim10"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="Car model : BMW"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dim20"
+                android:layout_marginRight="@dimen/dim10"
+                android:src="@mipmap/arrow_home"></ImageView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weel"
+    tools:context=".optActivity.OTPActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_upcomming"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorGreenButton">
+
+            <ImageView
+                android:id="@+id/img_back_otp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_dp15"
+                android:src="@drawable/back_arrow_w" />
+
+            <TextView
+                android:id="@+id/tvotp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/otp"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_sp22" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomLayout"
+            android:layout_below="@+id/relative_upcomming">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_user"
+                    android:layout_marginTop="@dimen/margin_dp15">
+
+                    <TextView
+                        android:id="@+id/cardetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:layout_marginTop="@dimen/margin_dp15"
+                        android:text="Car Detail"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp21" />
+
+                    <TextView
+                        android:id="@+id/tv_cardetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_dp85"
+                        android:layout_marginTop="@dimen/margin_dp15"
+                        android:layout_toRightOf="@+id/cardetails"
+                        android:text="BMW    220"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp19" />
+
+
+                    <TextView
+                        android:id="@+id/servicesdetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cardetails"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:layout_marginTop="@dimen/margin_dp15"
+                        android:text="Service Detail"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp21" />
+
+                    <TextView
+                        android:id="@+id/tv_abousservices"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/abousservices"
+                        android:layout_alignLeft="@+id/tv_cardetails"
+                        android:layout_alignTop="@+id/servicesdetails"
+                        android:layout_marginRight="@dimen/margin_dp15"
+                        android:layout_marginBottom="@dimen/margin_dp25"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp15" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="OTP"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textsize_sp21" />
+
+                <TextView
+                    android:id="@+id/tv_getotp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/realtive_otp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_dp25"
+                    android:gravity="center"
+                    android:text="Get otp from customer."
+                    android:textColor="@color/colorRedText"
+                    android:textSize="@dimen/textsize_sp15" />
+
+                <RelativeLayout
+                    android:id="@+id/realtive_otp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_otp"
+                    android:layout_marginTop="@dimen/margin_dp18"
+                    android:gravity="center">
+
+                    <EditText
+                        android:id="@+id/edit01"
+                        android:layout_width="@dimen/margin_dp50"
+                        android:layout_height="@dimen/margin_dp50"
+                        android:background="@drawable/custom_edit"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+
+                    <EditText
+                        android:id="@+id/edit02"
+                        android:layout_width="@dimen/margin_dp50"
+                        android:layout_height="@dimen/margin_dp50"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:layout_toRightOf="@+id/edit01"
+                        android:background="@drawable/custom_edit"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+
+                    <EditText
+                        android:id="@+id/edit03"
+                        android:layout_width="@dimen/margin_dp50"
+                        android:layout_height="@dimen/margin_dp50"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:layout_marginRight="@dimen/margin_dp15"
+                        android:layout_toRightOf="@+id/edit02"
+                        android:background="@drawable/custom_edit"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+
+                    <EditText
+                        android:id="@+id/edit04"
+                        android:layout_width="@dimen/margin_dp50"
+                        android:layout_height="@dimen/margin_dp50"
+                        android:layout_toRightOf="@+id/edit03"
+                        android:background="@drawable/custom_edit"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relative_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_getotp"
+                    android:layout_marginTop="@dimen/margin_dp18"
+                    android:layout_marginBottom="@dimen/margin_dp25">
+
+                    <Button
+                        android:id="@+id/btn_track"
+                        android:layout_width="@dimen/margin_dp120"
+                        android:layout_height="@dimen/margin_dp45"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:background="@drawable/custom_green_bg"
+                        android:text="Track"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp17" />
+
+                    <Button
+                        android:id="@+id/btn_startJob"
+                        android:layout_width="@dimen/margin_dp120"
+                        android:layout_height="@dimen/margin_dp45"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/margin_dp15"
+                        android:background="@drawable/custom_red_bg"
+                        android:text="StartJob"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp17" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

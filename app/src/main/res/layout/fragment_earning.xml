@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.fragment.EarningFragment">
+
+    <TextView
+        android:id="@+id/bookingText"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_marginStart="@dimen/dim15"
+        android:layout_marginLeft="@dimen/dim15"
+        android:background="@color/colorGreenButton"
+        android:gravity="center"
+        android:text="My Earning"
+        android:textColor="@color/colorAccent"
+        android:textSize="21sp" />
+
+    <RelativeLayout
+        android:layout_width="60dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dim15"
+            android:src="@mipmap/back_arrowwhite"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/totalEarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookingText"
+        android:layout_centerHorizontal="true"
+        android:background="#7de7af"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/dim15"
+        android:text="Total Earning  $650"
+        android:textColor="#f43535"
+        android:textSize="@dimen/textsize_sp19" />
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/upcomingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/totalEarning"
+        android:background="@mipmap/homebackground"></android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

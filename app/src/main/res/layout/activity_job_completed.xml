@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weel"
+    tools:context=".Jobcompleted.JobCompletedActivity">
+
+    <RelativeLayout
+        android:layout_above="@+id/relative_Swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorGreenButton">
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_dp15"
+                android:src="@drawable/back_arrow_w" />
+
+            <TextView
+                android:id="@+id/tv_jobcompleted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Job Complete"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_sp22" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_feedback">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin_dp200"
+                android:src="@drawable/applogo" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_Swipe"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGreenButton">
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Swipe to complete job"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textsize_sp19" />
+
+        <ImageView
+            android:id="@+id/img_swipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_dp15"
+            android:src="@drawable/right_arrow_w" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

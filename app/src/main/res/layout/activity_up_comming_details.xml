@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_weel"
+    tools:context=".upcommingDetails.UpCommingDetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_upcomming"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorGreenButton">
+
+            <ImageView
+                android:id="@+id/img_back_upcomming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding_dp15"
+                android:src="@drawable/back_arrow_w" />
+
+            <TextView
+                android:id="@+id/tv_upcomming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/upcomming_detail"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize_sp22" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_above="@+id/bottomLayout"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relative_upcomming">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/relative_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_user"
+                        android:layout_width="@dimen/margin_dp120"
+                        android:layout_height="@dimen/margin_dp120"
+                        android:layout_marginLeft="@dimen/margin_dp28"
+                        android:layout_marginTop="@dimen/margin_dp20"
+                        android:src="@drawable/profile_150" />
+
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_dp22"
+                        android:layout_marginTop="@dimen/margin_dp25"
+                        android:layout_toRightOf="@+id/img_user"
+                        android:text="Adem jones"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp19" />
+
+                    <TextView
+                        android:id="@+id/tv_useraddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_username"
+                        android:layout_alignLeft="@+id/tv_username"
+                        android:layout_marginTop="@dimen/margin_dp5"
+                        android:text="303 South broodway\n USA"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp13" />
+
+
+                    <TextView
+                        android:id="@+id/tv_useremail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_useraddress"
+                        android:layout_alignLeft="@+id/tv_username"
+                        android:layout_marginTop="@dimen/margin_dp5"
+                        android:text="adam12@gmail.com"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp13" />
+
+                    <TextView
+                        android:id="@+id/tv_usercontact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_useremail"
+                        android:layout_alignLeft="@+id/tv_username"
+                        android:layout_marginTop="@dimen/margin_dp5"
+                        android:drawableLeft="@drawable/img_phone"
+                        android:drawablePadding="@dimen/padding_dp10"
+                        android:text="9816255767"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp13" />
+                    <ImageView
+                        android:layout_marginTop="@dimen/margin_dp5"
+                        android:layout_below="@+id/tv_useremail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_mess"
+                        android:layout_marginLeft="@dimen/margin_dp18"
+                        android:layout_toRightOf="@+id/tv_usercontact"
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/layout_servicedetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img_user"
+                        android:layout_marginTop="@dimen/margin_dp10">
+
+                        <TextView
+                            android:id="@+id/cardetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_dp15"
+                            android:text="Car Detail"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize_sp21" />
+
+                        <TextView
+                            android:id="@+id/tv_cardetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_dp65"
+                            android:layout_toRightOf="@+id/cardetails"
+                            android:text="BMW    220"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize_sp19" />
+
+
+                        <TextView
+                            android:id="@+id/servicesdetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cardetails"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/margin_dp15"
+                            android:layout_marginTop="@dimen/margin_dp15"
+                            android:text="Service Detail"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize_sp21" />
+
+
+                        <TextView
+                            android:id="@+id/tv_abousservices"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/abousservices"
+                            android:layout_alignLeft="@+id/tv_cardetails"
+                            android:layout_alignTop="@+id/servicesdetails"
+                            android:layout_marginRight="@dimen/margin_dp15"
+                            android:layout_marginBottom="@dimen/margin_dp25"
+                            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textsize_sp15" />
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/bottomLayout"
+            android:layout_centerHorizontal="true">
+
+            <RelativeLayout
+                android:id="@+id/layout_accpet_reject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/tv_doyouwant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/do_you_want_to"
+                    android:textColor="@color/colorRedText"
+                    android:textSize="@dimen/textsize_sp19" />
+
+                <TextView
+                    android:id="@+id/tv_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_dp5"
+                    android:layout_toRightOf="@+id/tv_doyouwant"
+                    android:text="@string/accept"
+                    android:textColor="@color/colorGreenText"
+                    android:textSize="@dimen/textsize_sp19" />
+
+                <TextView
+                    android:id="@+id/tv_or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_dp5"
+                    android:layout_toRightOf="@+id/tv_accept"
+                    android:text="Or"
+                    android:textColor="@color/colorRedText"
+                    android:textSize="@dimen/textsize_sp19" />
+
+                <TextView
+                    android:id="@+id/tv_reject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_dp5"
+                    android:layout_toRightOf="@+id/tv_or"
+                    android:text="@string/reject"
+                    android:textColor="@color/colorRedText"
+                    android:textSize="@dimen/textsize_sp19" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_accpet_reject"
+                android:layout_marginTop="@dimen/margin_dp30"
+                android:layout_marginBottom="@dimen/margin_dp25">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/margin_dp45"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_accept"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin_dp45"
+                        android:layout_marginLeft="@dimen/margin_dp15"
+                        android:layout_marginRight="@dimen/margin_dp10"
+                        android:layout_marginBottom="@dimen/margin_dp25"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_green_bg"
+                        android:text="Accept"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+
+                    <Button
+                        android:id="@+id/btn_reject"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/margin_dp45"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/margin_dp10"
+                        android:layout_marginRight="@dimen/margin_dp15"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_red_bg"
+                        android:text="Reject"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/textsize_sp19" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
