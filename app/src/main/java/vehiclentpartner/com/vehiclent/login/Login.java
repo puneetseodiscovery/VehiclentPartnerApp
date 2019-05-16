@@ -35,6 +35,8 @@ public class Login extends AppCompatActivity {
         ButterKnife.bind(this);
 
         init();
+
+        //This is secondary code of git
     }
 
     public void init() {
