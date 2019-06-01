@@ -9,9 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class ForgotPassword extends AppCompatActivity implements View.OnClickListener {
+public class ForgotPassword extends BaseClass implements View.OnClickListener {
 
     ImageView img_back;
     TextView tv_about_forgotpassword;

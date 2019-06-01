@@ -11,8 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 
-public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SpinnerActivity extends BaseClass implements AdapterView.OnItemSelectedListener {
 
     Spinner spin;
     String[] bankNames = {"Select", "BOI", "SBI", "HDFC", "PNB", "OBC"};

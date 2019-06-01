@@ -1,17 +1,30 @@
 package vehiclentpartner.com.vehiclent.home.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.net.Uri;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.about_us.AboutUsActivity;
+import vehiclentpartner.com.vehiclent.contactsUsActivity.ContactsUsActivity;
+import vehiclentpartner.com.vehiclent.home.homeActivity.Home;
+import vehiclentpartner.com.vehiclent.home.presenter.IPLogout;
+import vehiclentpartner.com.vehiclent.home.presenter.PLogOut;
+import vehiclentpartner.com.vehiclent.login.LoginActivity;
+import vehiclentpartner.com.vehiclent.responseModelClasses.LogoutResponseModel;
+import vehiclentpartner.com.vehiclent.termandConditionActivity.TermConditionsActivity;
+import vehiclentpartner.com.vehiclent.util.SavePref;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
 /**
@@ -21,7 +34,7 @@ import vehiclentpartner.com.vehiclent.util.Utility;
  * Use the {@link SettingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingFragment extends Fragment {
+public class SettingFragment extends Fragment implements View.OnClickListener, ISettingFragment {
 
     View view;
     @BindView((R.id.tv_categories))
@@ -48,6 +61,19 @@ public class SettingFragment extends Fragment {
     @BindView(R.id.tv_logout)
     TextView tv_logout;
 
+    @BindView(R.id.relative_logout)
+    RelativeLayout relative_logout;
+
+    @BindView(R.id.relative_aboutus)
+    RelativeLayout relative_aboutus;
+
+    @BindView(R.id.relative_termcondition)
+    RelativeLayout relative_termcondition;
+
+    @BindView(R.id.relative_contactus)
+    RelativeLayout relative_contactus;
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -57,43 +83,30 @@ public class SettingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SettingFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SettingFragment newInstance(String param1, String param2) {
-        SettingFragment fragment = new SettingFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    SavePref savePref;
+    IPLogout ipLogout;
+    String get_uerID;
+    ProgressDialog progressDialog;
+    Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_setting, container, false);
+        view = inflater.inflate(R.layout.fragment_setting, container, false);
+
         ButterKnife.bind(this, view);
+        context = this.getContext();
+        ipLogout = new PLogOut(this);
+        savePref = new SavePref(getActivity());
+        Initialization();
+
+
+        return view;
+    }
+
+    private void Initialization() {
+        get_uerID = savePref.getid();
 
         tv_categories.setTypeface(Utility.typeFaceForBoldText(getActivity()));
         tv_aboutus.setTypeface(Utility.typeFaceForRegulerText(getActivity()));
@@ -103,7 +116,80 @@ public class SettingFragment extends Fragment {
         tv_payment.setTypeface(Utility.typeFaceForRegulerText(getActivity()));
         tv_termcondintion.setTypeface(Utility.typeFaceForRegulerText(getActivity()));
         tv_logout.setTypeface(Utility.typeFaceForRegulerText(getActivity()));
+        EventListner();
+    }
 
-        return view;
+    private void EventListner() {
+
+        relative_logout.setOnClickListener(this);
+        relative_aboutus.setOnClickListener(this);
+        relative_termcondition.setOnClickListener(this);
+        relative_contactus.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.relative_aboutus:
+                intent = new Intent(getActivity(), AboutUsActivity.class);
+                startActivity(intent);
+                break;
+
+
+            case R.id.relative_termcondition:
+                intent = new Intent(getActivity(), TermConditionsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.relative_contactus:
+                intent = new Intent(getActivity(), ContactsUsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.relative_logout:
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("VehiClent");
+                builder.setMessage("Are you sure you want to Logout?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //   savePref.clearPreferences();
+                                progressDialog = Utility.showLoader(getActivity());
+                                ipLogout.doLogout(get_uerID);
+
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+                break;
+        }
+    }
+
+    @Override
+    public void onLogoutFromPresenter(int statusValue) {
+
+    }
+
+    @Override
+    public void onLogoutSuccessFromPresenter(LogoutResponseModel logoutResponseModel) {
+
+        progressDialog.dismiss();
+        savePref.clearPreferences();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onLogoutFailedFromPresenter(String message) {
+
     }
 }

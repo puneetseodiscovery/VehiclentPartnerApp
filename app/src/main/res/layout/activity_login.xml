@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_400_splash"
-    tools:context=".login.Login">
+    tools:context=".login.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="90dp"
-                android:background="@drawable/new_logo"></ImageView>
+                android:background="@drawable/new_logo">
+
+            </ImageView>
 
             <TextView
                 android:id="@+id/tv_username"
@@ -46,11 +48,13 @@
                 android:layout_marginRight="@dimen/dim20"
                 android:background="@drawable/edittextwithborder"
                 android:drawableRight="@drawable/user"
+                android:hint="Mobile/Email"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="@dimen/dim10"
                 android:paddingRight="@dimen/dim10"
-                android:text="Mobile/Email" />
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/tv_pass"
@@ -73,10 +77,12 @@
                 android:layout_marginRight="@dimen/dim20"
                 android:background="@drawable/edittextwithborder"
                 android:drawableRight="@mipmap/icon_eye_password"
+                android:hint="**********"
+                android:inputType="textPassword"
                 android:paddingLeft="@dimen/dim10"
                 android:paddingRight="@dimen/dim10"
-                android:inputType="textPassword"
-                android:text="**********" />
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/tv_forgot"
@@ -103,7 +109,5 @@
                 android:textSize="@dimen/dim25" />
 
         </RelativeLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

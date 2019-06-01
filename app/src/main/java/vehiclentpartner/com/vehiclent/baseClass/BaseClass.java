@@ -1,4 +1,4 @@
-package vehiclentpartner.com.vehiclent;
+package vehiclentpartner.com.vehiclent.baseClass;
 
 import android.content.Context;
 import android.os.Bundle;

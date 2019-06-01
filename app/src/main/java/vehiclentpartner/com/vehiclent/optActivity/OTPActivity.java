@@ -22,12 +22,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.Jobcompleted.JobCompletedActivity;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.location.LocationActivity;
 import vehiclentpartner.com.vehiclent.services.TrackerServices;
 import vehiclentpartner.com.vehiclent.upcommingDetails.UpCommingDetailsActivity;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class OTPActivity extends AppCompatActivity implements View.OnClickListener {
+public class OTPActivity extends BaseClass implements View.OnClickListener {
 
     OTPActivity context;
 

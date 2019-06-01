@@ -9,9 +9,10 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class EarningDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class EarningDetailsActivity extends BaseClass implements View.OnClickListener {
 
     @BindView(R.id.tv_earning_details)
     TextView tv_earning_details;

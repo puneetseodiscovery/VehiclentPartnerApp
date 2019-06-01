@@ -12,12 +12,13 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.feedback.FeedbackActivity;
 import vehiclentpartner.com.vehiclent.location.LocationActivity;
 import vehiclentpartner.com.vehiclent.optActivity.OTPActivity;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class JobCompletedActivity extends AppCompatActivity implements View.OnClickListener {
+public class JobCompletedActivity extends BaseClass implements View.OnClickListener {
 
     @BindView(R.id.img_back)
     ImageView img_back;

@@ -1,7 +1,6 @@
 package vehiclentpartner.com.vehiclent.congratulations;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,10 +9,11 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
-import vehiclentpartner.com.vehiclent.home.Home;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
+import vehiclentpartner.com.vehiclent.home.homeActivity.Home;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class CongratulationActivity extends AppCompatActivity implements View.OnClickListener {
+public class CongratulationActivity extends BaseClass implements View.OnClickListener {
 
     @BindView(R.id.img_back_congratulations)
     ImageView img_back_congratulations;

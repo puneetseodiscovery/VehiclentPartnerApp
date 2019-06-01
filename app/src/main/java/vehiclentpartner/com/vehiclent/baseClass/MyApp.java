@@ -1,8 +1,9 @@
-package vehiclentpartner.com.vehiclent;
+package vehiclentpartner.com.vehiclent.baseClass;
 
 import android.app.Application;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import vehiclentpartner.com.vehiclent.R;
 
 public class MyApp extends Application {
 

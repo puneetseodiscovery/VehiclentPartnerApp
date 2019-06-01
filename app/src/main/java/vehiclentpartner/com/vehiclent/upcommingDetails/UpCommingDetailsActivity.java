@@ -19,11 +19,12 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.optActivity.OTPActivity;
 import vehiclentpartner.com.vehiclent.services.TrackerServices;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class UpCommingDetailsActivity extends AppCompatActivity implements View.OnClickListener {
+public class UpCommingDetailsActivity extends BaseClass implements View.OnClickListener {
 
     @BindView(R.id.tv_upcomming)
     TextView tv_upcomming;

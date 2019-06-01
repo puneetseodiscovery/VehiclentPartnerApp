@@ -1,5 +1,6 @@
-package vehiclentpartner.com.vehiclent.home;
+package vehiclentpartner.com.vehiclent.home.homeActivity;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -7,15 +8,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.home.fragment.EarningFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.HomeFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.ProfileFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.SettingFragment;
 
-public class Home extends AppCompatActivity {
-
+public class Home extends BaseClass {
+    boolean doubleBackToExitPressedOnce = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,4 +66,23 @@ public class Home extends AppCompatActivity {
             return false;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
 }

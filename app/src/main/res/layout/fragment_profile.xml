@@ -64,11 +64,24 @@
 
                     <ImageView
                         android:id="@+id/img_userprofile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/margin_dp150"
+                        android:layout_height="@dimen/margin_dp150"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/margin_dp45"
                         android:src="@drawable/user_profile" />
+
+
+                    <ImageView
+                        android:id="@+id/img_opncamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/img_userprofile"
+                        android:layout_marginLeft="-50dp"
+                        android:layout_toRightOf="@+id/img_userprofile"
+                        android:padding="@dimen/padding_dp10"
+                        android:src="@drawable/ic_camera"
+                        android:visibility="invisible" />
+
 
                     <TextView
                         android:id="@+id/tv_username"
@@ -77,7 +90,7 @@
                         android:layout_below="@+id/img_userprofile"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/margin_dp15"
-                        android:text="RICHARD A"
+                        android:text=""
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/textsize_sp22" />
 
@@ -151,7 +164,7 @@
                         android:layout_toRightOf="@+id/name"
                         android:background="@android:color/transparent"
                         android:ellipsize="end"
-                        android:hint="Richards A"
+                        android:hint=""
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
@@ -191,7 +204,7 @@
                         android:layout_toRightOf="@+id/name"
                         android:background="@android:color/transparent"
                         android:ellipsize="end"
-                        android:hint="adem12@gmail.com"
+                        android:hint=""
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:maxLines="2"
@@ -208,12 +221,52 @@
                         android:layout_marginTop="@dimen/margin_dp12"
                         android:background="@color/colorBlack" />
 
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view3"
+                        android:layout_alignLeft="@+id/name"
+                        android:layout_marginTop="@dimen/margin_dp12"
+                        android:padding="@dimen/padding_dp7"
+                        android:text="@string/gender"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp16" />
+
+                    <EditText
+                        android:id="@+id/edit_user_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view3"
+                        android:layout_alignLeft="@+id/edit_user_name"
+                        android:layout_marginTop="@dimen/margin_dp12"
+                        android:layout_marginRight="@dimen/margin_dp15"
+                        android:layout_toRightOf="@+id/gender"
+                        android:background="@android:color/transparent"
+                        android:ellipsize="end"
+                        android:hint=""
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="2"
+                        android:padding="@dimen/padding_dp7"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorBlack"
+                        android:textSize="@dimen/textsize_sp16" />
+
+                    <View
+                        android:id="@+id/view14"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/view_size_dp0.5"
+                        android:layout_below="@+id/edit_user_gender"
+                        android:layout_marginTop="@dimen/margin_dp12"
+                        android:background="@color/colorBlack" />
+
 
                     <TextView
                         android:id="@+id/mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/view3"
+                        android:layout_below="@+id/view14"
                         android:layout_alignLeft="@+id/name"
                         android:layout_marginTop="@dimen/margin_dp12"
                         android:padding="@dimen/padding_dp7"
@@ -225,14 +278,14 @@
                         android:id="@+id/edit_user_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/view3"
+                        android:layout_below="@+id/view14"
                         android:layout_alignLeft="@+id/edit_user_name"
                         android:layout_marginTop="@dimen/margin_dp12"
                         android:layout_marginRight="@dimen/margin_dp15"
                         android:layout_toRightOf="@+id/name"
                         android:background="@android:color/transparent"
                         android:ellipsize="end"
-                        android:hint="9816255767"
+                        android:hint=""
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:maxLines="3"
@@ -272,7 +325,7 @@
                         android:layout_toRightOf="@+id/name"
                         android:background="@android:color/transparent"
                         android:ellipsize="end"
-                        android:hint="2 King street south USA"
+                        android:hint=""
                         android:imeOptions="actionDone"
                         android:inputType="textMultiLine"
                         android:maxLines="3"

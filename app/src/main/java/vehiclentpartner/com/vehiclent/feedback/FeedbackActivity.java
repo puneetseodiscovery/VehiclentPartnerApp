@@ -10,10 +10,11 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
+import vehiclentpartner.com.vehiclent.baseClass.BaseClass;
 import vehiclentpartner.com.vehiclent.congratulations.CongratulationActivity;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-public class FeedbackActivity extends AppCompatActivity implements View.OnClickListener {
+public class FeedbackActivity extends BaseClass implements View.OnClickListener {
 
     @BindView(R.id.img_back_feedback)
     ImageView img_back_feedback;
