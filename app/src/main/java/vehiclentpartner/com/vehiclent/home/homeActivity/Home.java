@@ -1,5 +1,6 @@
 package vehiclentpartner.com.vehiclent.home.homeActivity;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -16,6 +18,8 @@ import vehiclentpartner.com.vehiclent.home.fragment.EarningFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.HomeFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.ProfileFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.SettingFragment;
+import vehiclentpartner.com.vehiclent.splashActivity.MainActivity;
+import vehiclentpartner.com.vehiclent.upcommingDetails.UpCommingDetailsActivity;
 
 public class Home extends BaseClass {
     boolean doubleBackToExitPressedOnce = false;
@@ -23,6 +27,7 @@ public class Home extends BaseClass {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

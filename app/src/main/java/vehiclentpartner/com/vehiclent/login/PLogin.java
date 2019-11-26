@@ -14,10 +14,10 @@ public class PLogin implements IPLogin {
     }
 
     @Override
-    public void doLogin(String email, String password) {
+    public void doLogin(String email, String password,String device_token,String latitude,String longitude) {
 
-        iModelLogin = new ModelLogin(email, password, this);
-        iModelLogin.loginRestCall(email, password);
+        iModelLogin = new ModelLogin(this);
+        iModelLogin.loginRestCall(email, password,device_token,latitude,longitude);
 
     }
 

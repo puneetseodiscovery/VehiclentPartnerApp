@@ -1,5 +1,7 @@
 package vehiclentpartner.com.vehiclent.home.presenter;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import vehiclentpartner.com.vehiclent.home.fragment.IProfileFragment;
 import vehiclentpartner.com.vehiclent.home.fragment.ProfileFragment;
 import vehiclentpartner.com.vehiclent.home.models.IMProfileFragment;
@@ -27,9 +29,9 @@ public class PProfileFragment implements IPProfileFragment {
     }
 
     @Override
-    public void doUpdateUserProfile(String id, String first_name, String last_name, String gender, String address, String phone_number) {
+    public void doUpdateUserProfile(String id, String first_name, String last_name, String gender, String address, String phone_number, String longitude, String latitude, MultipartBody.Part image, RequestBody imgReq) {
         imProfileFragment=new ModelProfileFragment(this);
-        imProfileFragment.updateUserProfileRestCall(id,first_name,last_name,gender,address,phone_number);
+        imProfileFragment.updateUserProfileRestCall(id,first_name,last_name,gender,address,phone_number,longitude,latitude,image,imgReq);
     }
 
     @Override

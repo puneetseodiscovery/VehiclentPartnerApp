@@ -1,6 +1,9 @@
 package vehiclentpartner.com.vehiclent.home.models;
 
 import android.os.Message;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import vehiclentpartner.com.vehiclent.home.presenter.IPProfileFragment;
 import vehiclentpartner.com.vehiclent.home.presenter.PProfileFragment;
 import vehiclentpartner.com.vehiclent.responseModelClasses.GetUserProfileResponseModel;
@@ -23,10 +26,10 @@ public class ModelProfileFragment implements IMProfileFragment {
     }
 
     @Override
-    public void updateUserProfileRestCall(String id, String first_name, String last_name, String gender, String address, String phone_number) {
+    public void updateUserProfileRestCall(String id, String first_name, String last_name, String gender, String address, String phone_number, String longitude, String latitude, MultipartBody.Part image, RequestBody imgReq) {
 
         RetrofitCalls retrofitCalls = new RetrofitCalls();
-        retrofitCalls.update_userProfile(id,first_name,last_name,gender,address,phone_number, mHandler);
+        retrofitCalls.update_userProfile(id,first_name,last_name,gender,address,phone_number,latitude,longitude,image,imgReq, mHandler);
     }
 
     android.os.Handler mHandler = new android.os.Handler() {

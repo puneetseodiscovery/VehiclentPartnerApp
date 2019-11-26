@@ -73,6 +73,9 @@ public class LoginResponseModel {
         @SerializedName("latitude")
         @Expose
         private String latitude;
+        @SerializedName("device_token")
+        @Expose
+        private String deviceToken;
         @SerializedName("your_profile")
         @Expose
         private String yourProfile;
@@ -163,6 +166,14 @@ public class LoginResponseModel {
             this.latitude = latitude;
         }
 
+        public String getDeviceToken() {
+            return deviceToken;
+        }
+
+        public void setDeviceToken(String deviceToken) {
+            this.deviceToken = deviceToken;
+        }
+
         public String getYourProfile() {
             return yourProfile;
         }
@@ -188,5 +199,4 @@ public class LoginResponseModel {
         }
 
     }
-
 }

@@ -11,22 +11,18 @@ import vehiclentpartner.com.vehiclent.retrofitClasses.RetrofitCalls;
 
 public class ModelLogin implements IModelLogin {
 
-    String email,password;
     IPLogin ipLogin;
     //PLogin pLogin;
 
-    public ModelLogin(String email, String password, PLogin pLogin) {
-        this.email = email;
-        this.password = password;
+    public ModelLogin(PLogin pLogin) {
         this.ipLogin = pLogin;
     }
 
     @Override
-    public void loginRestCall(String email, String password) {
+    public void loginRestCall(String email, String password,String device_token,String latitude,String longitude) {
 
-        //BeanLogin beanLogin=new BeanLogin(email,password);
         RetrofitCalls retrofitCalls=new RetrofitCalls();
-        retrofitCalls.partnerLoginApi(email,password,mHandler);
+        retrofitCalls.partnerLoginApi(email,password,device_token,latitude,longitude,mHandler);
 
     }
 

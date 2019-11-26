@@ -1,6 +1,8 @@
 package vehiclentpartner.com.vehiclent.home.fragment;
 
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,6 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,58 +21,30 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
 import vehiclentpartner.com.vehiclent.home.adapter.PastAdapter;
+import vehiclentpartner.com.vehiclent.home.fragment.IPastJobs.IPPastJobsFragment;
+import vehiclentpartner.com.vehiclent.home.fragment.IPastJobs.IPastJobsFragment;
+import vehiclentpartner.com.vehiclent.home.presenter.PPastJobsFragment;
+import vehiclentpartner.com.vehiclent.responseModelClasses.PastJobListingResponseModel;
+import vehiclentpartner.com.vehiclent.util.SavePref;
+import vehiclentpartner.com.vehiclent.util.Utility;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Past#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Past extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    ArrayList pastItemList = new ArrayList();
+public class Past extends Fragment implements IPastJobsFragment {
 
     @BindView(R.id.pastRecyclerView)
     RecyclerView pastRecyclerView;
 
+    @BindView(R.id.img_nodata)
+    ImageView img_nodata;
 
-    public Past() {
-        // Required empty public constructor
-    }
+    PastAdapter pastAdapter;
+    Context context;
+    ProgressDialog progressDialog;
+    SavePref savePref;
+    IPPastJobsFragment ipPastJobsFragment;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Past.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Past newInstance(String param1, String param2) {
-        Past fragment = new Past();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    String partner_id;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,34 +53,54 @@ public class Past extends Fragment {
         View view = inflater.inflate(R.layout.fragment_past, container, false);
 
         ButterKnife.bind(this,view);
+        context = this.getContext();
+        progressDialog = new ProgressDialog(context);
+        savePref = new SavePref(context);
+        partner_id = savePref.getid();
+        ipPastJobsFragment = new PPastJobsFragment(this);
 
-        // Inflate the layout for this fragment
-        init();
+
+        if (Utility.isNetworkConnected(context)){
+            progressDialog = Utility.showLoader(context);
+            ipPastJobsFragment.doPastJobsList(partner_id);
+
+        }else {
+            Toast.makeText(context, "Check your internet connection !!!", Toast.LENGTH_SHORT).show();
+        }
+
         return view;
     }
 
-    private void init()
-    {
-
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-        pastItemList.add("First");
-
-        PastAdapter pastAdapter = new PastAdapter(getActivity(),pastItemList);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        pastRecyclerView.setLayoutManager(layoutManager);
-        pastRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        pastRecyclerView.setAdapter(pastAdapter);
-
+    @Override
+    public void onPastJobFromPresenter(int statusValue) {
+        progressDialog.dismiss();
     }
 
+    @Override
+    public void onPastJobSuccessFromPresenter(PastJobListingResponseModel pastJobListingResponseModel) {
+        progressDialog.dismiss();
+        if (pastJobListingResponseModel != null && pastJobListingResponseModel.getData().size() > 0) {
+            img_nodata.setVisibility(View.GONE);
+            pastAdapter = new PastAdapter(context,pastJobListingResponseModel.getData());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+            pastRecyclerView.setLayoutManager(layoutManager);
+            pastRecyclerView.setItemAnimator(new DefaultItemAnimator());
+            pastRecyclerView.setAdapter(pastAdapter);
+
+        } else {
+
+        }
+    }
+
+    @Override
+    public void onPastJobFailedFromPresenter(String messge) {
+        progressDialog.dismiss();
+    }
+
+    @Override
+    public void onPastJobEmptyFromPresenter(String messge) {
+        progressDialog.dismiss();
+        img_nodata.setVisibility(View.VISIBLE);
+      //  Toast.makeText(context, ""+messge, Toast.LENGTH_SHORT).show();
+    }
 }

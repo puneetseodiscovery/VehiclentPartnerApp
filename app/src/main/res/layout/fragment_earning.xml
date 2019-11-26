@@ -14,7 +14,7 @@
         android:background="@color/colorGreenButton"
         android:gravity="center"
         android:text="My Earning"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorWhite"
         android:textSize="21sp" />
 
     <RelativeLayout
@@ -33,7 +33,7 @@
 
 
     <TextView
-        android:id="@+id/totalEarning"
+        android:id="@+id/tv_totalEarning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bookingText"
@@ -41,7 +41,7 @@
         android:background="#7de7af"
         android:gravity="center_horizontal"
         android:padding="@dimen/dim15"
-        android:text="Total Earning  $650"
+        android:text=""
         android:textColor="#f43535"
         android:textSize="@dimen/textsize_sp19" />
     <!-- TODO: Update blank fragment layout -->
@@ -49,8 +49,17 @@
         android:id="@+id/upcomingRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/totalEarning"
-        android:background="@mipmap/homebackground"></android.support.v7.widget.RecyclerView>
+        android:layout_below="@+id/tv_totalEarning"
+        android:background="@mipmap/homebackground">
 
+    </android.support.v7.widget.RecyclerView>
 
+    <ImageView
+        android:id="@+id/img_nodata"
+        android:layout_below="@+id/tv_totalEarning"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/img_nodata"
+        android:visibility="gone"/>
 </RelativeLayout>

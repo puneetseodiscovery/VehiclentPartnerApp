@@ -19,7 +19,6 @@ public class GetUserProfileResponseModel {
     @Expose
     private List<Datum> data = null;
 
-
     public Integer getStatus() {
         return status;
     }
@@ -82,6 +81,12 @@ public class GetUserProfileResponseModel {
         @SerializedName("choose_job")
         @Expose
         private String chooseJob;
+        @SerializedName("rating")
+        @Expose
+        private String rating;
+        @SerializedName("total_reviews")
+        @Expose
+        private String totalReviews;
 
         public String getId() {
             return id;
@@ -177,6 +182,22 @@ public class GetUserProfileResponseModel {
 
         public void setChooseJob(String chooseJob) {
             this.chooseJob = chooseJob;
+        }
+
+        public String getRating() {
+            return rating;
+        }
+
+        public void setRating(String rating) {
+            this.rating = rating;
+        }
+
+        public String getTotalReviews() {
+            return totalReviews;
+        }
+
+        public void setTotalReviews(String totalReviews) {
+            this.totalReviews = totalReviews;
         }
 
     }

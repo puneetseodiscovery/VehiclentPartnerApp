@@ -12,5 +12,11 @@
         android:paddingBottom="@dimen/dim10"
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
-
+    <ImageView
+        android:id="@+id/img_nodata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_nodata"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 </FrameLayout>

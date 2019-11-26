@@ -58,8 +58,11 @@ public class CongratulationActivity extends BaseClass implements View.OnClickLis
                 break;
 
             case R.id.tv_submit:
+
                 Intent intent = new Intent(CongratulationActivity.this, Home.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+
                 break;
         }
     }

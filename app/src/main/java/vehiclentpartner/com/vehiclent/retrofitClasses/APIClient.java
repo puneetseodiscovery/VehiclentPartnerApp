@@ -14,7 +14,8 @@ public class APIClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://classicheight.com/")
+                //.baseUrl("http://mobileappdevelopments.in/")
+                .baseUrl("http://api.amrdev.site/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

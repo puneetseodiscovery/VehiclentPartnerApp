@@ -24,6 +24,8 @@
                 android:text="@string/settings"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textsize_sp22" />
+
+
         </RelativeLayout>
 
         <ScrollView
@@ -90,6 +92,7 @@
                         android:id="@+id/relative_notification"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_below="@+id/relative_aboutus">
 
                         <ImageView
@@ -186,6 +189,7 @@
                         android:id="@+id/relative_howitwork"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_below="@+id/relative_contactus">
 
                         <ImageView
@@ -233,6 +237,7 @@
                         android:id="@+id/relative_payments"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_below="@+id/relative_howitwork">
 
                         <ImageView

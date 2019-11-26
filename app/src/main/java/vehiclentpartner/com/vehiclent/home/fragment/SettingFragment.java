@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import vehiclentpartner.com.vehiclent.R;
 import vehiclentpartner.com.vehiclent.about_us.AboutUsActivity;
+import vehiclentpartner.com.vehiclent.chatAcitvity.ChatActivity;
 import vehiclentpartner.com.vehiclent.contactsUsActivity.ContactsUsActivity;
 import vehiclentpartner.com.vehiclent.home.homeActivity.Home;
 import vehiclentpartner.com.vehiclent.home.presenter.IPLogout;
@@ -27,13 +29,7 @@ import vehiclentpartner.com.vehiclent.termandConditionActivity.TermConditionsAct
 import vehiclentpartner.com.vehiclent.util.SavePref;
 import vehiclentpartner.com.vehiclent.util.Utility;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * to handle interaction events.
- * Use the {@link SettingFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SettingFragment extends Fragment implements View.OnClickListener, ISettingFragment {
 
     View view;
@@ -106,6 +102,8 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
     }
 
     private void Initialization() {
+
+        progressDialog = new ProgressDialog(context);
         get_uerID = savePref.getid();
 
         tv_categories.setTypeface(Utility.typeFaceForBoldText(getActivity()));
@@ -138,7 +136,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
                 startActivity(intent);
                 break;
 
-
             case R.id.relative_termcondition:
                 intent = new Intent(getActivity(), TermConditionsActivity.class);
                 startActivity(intent);
@@ -150,14 +147,22 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
 
             case R.id.relative_logout:
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("VehiClent");
                 builder.setMessage("Are you sure you want to Logout?")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //   savePref.clearPreferences();
-                                progressDialog = Utility.showLoader(getActivity());
-                                ipLogout.doLogout(get_uerID);
+                                savePref.clearPreferences();
+
+                                if (Utility.isNetworkConnected(context)){
+
+                                    progressDialog = Utility.showLoader(getActivity());
+                                    ipLogout.doLogout(get_uerID);
+
+                                }else {
+                                    Toast.makeText(context, "Check your internet connection !!!", Toast.LENGTH_SHORT).show();
+                                }
+
+
 
 
                             }
@@ -175,6 +180,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
 
     @Override
     public void onLogoutFromPresenter(int statusValue) {
+        progressDialog.dismiss();
 
     }
 
@@ -182,7 +188,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
     public void onLogoutSuccessFromPresenter(LogoutResponseModel logoutResponseModel) {
 
         progressDialog.dismiss();
-        savePref.clearPreferences();
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
@@ -190,6 +195,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener, I
 
     @Override
     public void onLogoutFailedFromPresenter(String message) {
-
+        progressDialog.dismiss();
     }
 }

@@ -76,13 +76,24 @@
                 android:layout_marginTop="@dimen/dim10"
                 android:layout_marginRight="@dimen/dim20"
                 android:background="@drawable/edittextwithborder"
-                android:drawableRight="@mipmap/icon_eye_password"
                 android:hint="**********"
                 android:inputType="textPassword"
                 android:paddingLeft="@dimen/dim10"
                 android:paddingRight="@dimen/dim10"
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorBlack" />
+
+            <ImageView
+                android:id="@+id/img_eyes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_visibility_black"
+                android:layout_below="@+id/tv_pass"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@+id/edit_usereamil"
+                android:layout_marginTop="@dimen/margin_dp20"
+                android:layout_marginRight="@dimen/margin_dp30"
+                tools:ignore="VectorDrawableCompat" />
 
             <TextView
                 android:id="@+id/tv_forgot"
@@ -105,7 +116,7 @@
                 android:layout_marginBottom="@dimen/margin_dp25"
                 android:background="@drawable/custom_signin_bg"
                 android:text="LOGIN"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dim25" />
 
         </RelativeLayout>
